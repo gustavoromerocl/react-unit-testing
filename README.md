@@ -58,4 +58,18 @@ Matchers más usados
 - toBeTruthy()
 - toBeGreatherThan(valor)
 - toHaveLength(valor)
-- toBeInTheDocument
+- toBeInTheDocument()
+
+## Alcance de tus pruebas con Jest Coverage
+
+Para activarlo es necesario pasar la configuración a través del script ya que en nuestro caso que usamos react-create-app, su función es mostrar una tabla resumen de las pruebas realizadas
+- --collectCoverage=true
+
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |       0 |        0 |       0 |       0 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        2.725 s
