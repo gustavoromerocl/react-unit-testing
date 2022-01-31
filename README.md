@@ -32,4 +32,30 @@ sitio oficial: [https://jestjs.io/]
 
 - Crea una aplicación con el scaffold de react: npx create-react-app my-first-unit-test
 
-- Ejecuta la configuración integrada en el proyecto de react: npm run test
+- Ejecuta la configuración integrada y el ambiente de pruebas en el proyecto de react: npm run test
+
+## Configuración personalidaza para jest
+
+Los proyectos creados con react-app tienen integrada la configuración de jest por lo que solo es editable a través de la ejecución del script
+
+## Jest Expect
+
+Expect como su traducción lo indica se refiere a lo esperado o que lo que se espera del resultado, entonces recibe un argumento y ejecuta un matcher para validar.
+
+tuFuncion(){
+  return 5;
+}
+
+expect(tuFuncion()).toEquals(5);
+
+Matchers más usados
+
+- toBeDefined()
+- toBeUndefined()
+- toEqual(valor)
+- toBe(valor)
+- toBeinstanceOf(valor)
+- toBeTruthy()
+- toBeGreatherThan(valor)
+- toHaveLength(valor)
+- toBeInTheDocument
