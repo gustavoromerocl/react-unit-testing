@@ -27,3 +27,9 @@ Es un framework de pruebas creado en javascript, sus principales característica
 - API: Cuenta con una amplia comunidad y documentación.
 
 sitio oficial: [https://jestjs.io/]
+
+## Configurando Jest en React
+
+- Crea una aplicación con el scaffold de react: npx create-react-app my-first-unit-test
+
+- Ejecuta la configuración integrada en el proyecto de react: npm run test
