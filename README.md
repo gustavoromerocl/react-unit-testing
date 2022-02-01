@@ -119,4 +119,7 @@ Test Suites: 1 passed, 1 total
 Tests:       3 passed, 3 total
 Snapshots:   0 total
 
+### Ciclo de vida de una prueba unitaria
 
+Jest nos ofrece distintos metodos para ejecutar durante el ciclo de vida de la prueba unitaria, en la documentación oficial encontramos la totalidad de estos métodos. También encontraras los usados en este módulo en el dashboard con una breve descripción.
+[https://jestjs.io/docs/setup-teardown]
