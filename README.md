@@ -91,5 +91,32 @@ Para ejecutar las pruebas agrupadas utilizamos las función describe, que puedes
 Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
 Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Native sin usar un navegador o jsdom.
 
+### Prueba unitarias del primer componente
+
+Para ejecutar las pruebas unitarias usamos los métodos establecidos en la documentación [https://es.reactjs.org/docs/test-renderer.html], en esta oportunidad usamos los siguientes:
+
+- root = puede realizar busquedas en lo profundo del dom
+
+- toBeDefined = indica si el componente existe en el dom
+- findByType = busca el tipo de tag html ingresado, solo puede retornar un elemento
+- toEqual = valida o compara la cadena con el parametro recibido
+
+Los componentes del entorno de pruebas tambien cuentan con props, por lo que es posible acceder a ellos.
+
+PASS  src/App.test.js
+  <App />
+    ✓ Renderiza correctamente (15 ms)
+    ✓ Renderiza el header correctamente (5 ms)
+    ✓ Renderiza un texto, un link y una imagen (4 ms)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |     100 |      100 |     100 |     100 |                   
+ App.js   |     100 |      100 |     100 |     100 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
 
 
