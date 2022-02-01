@@ -1,6 +1,8 @@
 # react-unit-testing
 
-## Tipos de pruebas frontend
+## Conociendo y configurando Jest
+
+### Tipos de pruebas frontend
 
 Las pruebas en el frontend se clasifican de la siguiente forma: S
 
@@ -8,7 +10,7 @@ Las pruebas en el frontend se clasifican de la siguiente forma: S
 - Pruebas de integración: Esuna extensión lógica de pruebas unitarias, verifica funcionalidad y seguridad de los componentes integrados.
 - Pruebas E2E: Comprueban el flujo de inicio a fin de un software asegurando que funcione de la manera esperada
 
-## Test Runner
+### Test Runner
 
 Los test runner son aquellos que nos ayudan a crear o implementar el ambiente de pruebas
 
@@ -17,7 +19,7 @@ Los test runner son aquellos que nos ayudan a crear o implementar el ambiente de
 - Jasmine
 - Ava
 
-## Que es Jest
+### Que es Jest
 
 Es un framework de pruebas creado en javascript, sus principales características son:
 
@@ -28,7 +30,7 @@ Es un framework de pruebas creado en javascript, sus principales característica
 
 sitio oficial: [https://jestjs.io/]
 
-## Configurando Jest en React
+### Configurando Jest en React
 
 - Crea una aplicación con el scaffold de react: npx create-react-app my-first-unit-test
 
@@ -38,7 +40,7 @@ sitio oficial: [https://jestjs.io/]
 
 Los proyectos creados con react-app tienen integrada la configuración de jest por lo que solo es editable a través de la ejecución del script
 
-## Jest Expect
+### Jest Expect
 
 Expect como su traducción lo indica se refiere a lo esperado o que lo que se espera del resultado, entonces recibe un argumento y ejecuta un matcher para validar.
 
@@ -60,7 +62,7 @@ Matchers más usados
 - toHaveLength(valor)
 - toBeInTheDocument()
 
-## Alcance de tus pruebas con Jest Coverage
+### Alcance de tus pruebas con Jest Coverage
 
 Para activarlo es necesario pasar la configuración a través del script ya que en nuestro caso que usamos react-create-app, su función es mostrar una tabla resumen de las pruebas realizadas
 - --collectCoverage=true
@@ -73,3 +75,13 @@ Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        2.725 s
+
+## Mi primer prueba unitaria
+
+### Explicación de la estructura de una prueba unitaria
+
+Para poder realizar esta sección del curso fue necesario instalar la siguiente dependencia 
+
+- npm install -d react-test-renderer
+
+Para ejecutar las pruebas agrupadas utilizamos las función describe, que puedes revisar en detalle en el dashboard de la documentación.
