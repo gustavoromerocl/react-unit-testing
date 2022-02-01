@@ -36,7 +36,7 @@ sitio oficial: [https://jestjs.io/]
 
 - Ejecuta la configuración integrada y el ambiente de pruebas en el proyecto de react: npm run test
 
-## Configuración personalidaza para jest
+### Configuración personalidaza para jest
 
 Los proyectos creados con react-app tienen integrada la configuración de jest por lo que solo es editable a través de la ejecución del script
 
@@ -85,3 +85,11 @@ Para poder realizar esta sección del curso fue necesario instalar la siguiente 
 - npm install -d react-test-renderer
 
 Para ejecutar las pruebas agrupadas utilizamos las función describe, que puedes revisar en detalle en el dashboard de la documentación.
+
+### React Test Renderer [https://es.reactjs.org/docs/test-renderer.html]
+
+Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
+Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Native sin usar un navegador o jsdom.
+
+
+
