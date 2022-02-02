@@ -6,7 +6,7 @@ let component;
 
 const props = {
   history: {},
-  handleSubmit: () => {}
+  handleSubmit: () => {} //ToDo
 }
 
 describe("<Form />", () => {
@@ -49,4 +49,12 @@ describe("<Form />", () => {
     expect(button.props.disabled).toBeFalsy();
     expect(button.props.className).toEqual("search-button active");
   });
+
+  it("Se debe llamar al onSubmit sin problemas", () => {
+    const form = component.root.findByType("form");
+
+    form.props.onSubmit();
+
+    //ToDo
+  })
 })
