@@ -2,6 +2,7 @@ import React from "react";
 import { create } from 'react-test-renderer';
 import Gallery from '../components/Gallery';
 import NoImages from '../components/NoImages'
+import Images from '../components/Image'
 
 let component;
 
@@ -32,6 +33,14 @@ describe("<Galery />", () => {
       { farm: 'farmTest04', server: 'serverTest', id: 'testId04', secret: 'ñlkkjhhñl', title: 'titleTest04'}
     ];
 
+    /* Actualiza el componente con la nueva data*/
     component.update(<Gallery data={data} />);
+
+    /* El método findByType en caso de no encontrar conicidencias ejecuta un error, en cambio finAllByType retorna un arreglo, y en caso de no existir tendría valor 0 */
+    expect(component.root.findAllByType(NoImages).length).toEqual(0);
+    expect(component.root.findAllByType(Images).length).toEqual(data.length);
+    expect(component.root.findAllByType(Images)[0].props.alt).toEqual(data[0].title)
+
+  /* console.log(component.root.findAllByType(Images)[0].props); */
   });
 })
