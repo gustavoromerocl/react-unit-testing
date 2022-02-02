@@ -49,7 +49,7 @@
 <p>Las pruebas en el frontend se clasifican de la siguiente forma: S</p>
 <ul>
 <li>Pruebas unitarias:  Realiza pruebas a cada unidad por separado</li>
-<li>Pruebas de integración: Esuna extensión lógica de pruebas unitarias, verifica funcionalidad y seguridad de los componentes integrados.</li>
+<li>Pruebas de integración: Es una extensión lógica de pruebas unitarias, verifica funcionalidad y seguridad de los componentes integrados.</li>
 <li>Pruebas E2E: Comprueban el flujo de inicio a fin de un software asegurando que funcione de la manera esperada</li>
 </ul>
 <h3>Test Runner</h3>
@@ -143,7 +143,286 @@ Time:        2.725 s</p>
 <ul>
 <li>npm install -d react-test-renderer</li>
 </ul>
-<p>Para ejecutar las pruebas agrupadas utilizamos las función describe, que puedes revisar en detalle en el dashboard de la documentación.</p></article>
+<p>Para ejecutar las pruebas agrupadas utilizamos las función describe, que puedes revisar en detalle en el dashboard de la documentación.</p>
+<h3>React Test Renderer [https://es.reactjs.org/docs/test-renderer.html]</h3>
+<p>Este paquete proporciona un procesador de React que se puede usar para procesar componentes de React a objetos JavaScript puros, sin depender del DOM o de un entorno móvil nativo.
+Básicamente, este paquete facilita tomar una instantánea de la jerarquía de la vista de la plataforma (similar a un árbol DOM) representada por un componente React DOM o React Native sin usar un navegador o jsdom.</p>
+<h3>Prueba unitarias del primer componente</h3>
+<p>Para ejecutar las pruebas unitarias usamos los métodos establecidos en la documentación [https://es.reactjs.org/docs/test-renderer.html], en esta oportunidad usamos los siguientes:</p>
+<ul>
+<li>
+<p>root = puede realizar busquedas en lo profundo del dom</p>
+</li>
+<li>
+<p>toBeDefined = indica si el componente existe en el dom</p>
+</li>
+<li>
+<p>findByType = busca el tipo de tag html ingresado, solo puede retornar un elemento</p>
+</li>
+<li>
+<p>toEqual = valida o compara la cadena con el parametro recibido</p>
+</li>
+</ul>
+<p>Los componentes del entorno de pruebas tambien cuentan con props, por lo que es posible acceder a ellos.</p>
+<p>PASS  src/App.test.js
+<App />
+✓ Renderiza correctamente (15 ms)
+✓ Renderiza el header correctamente (5 ms)
+✓ Renderiza un texto, un link y una imagen (4 ms)</p>
+<p>----------|---------|----------|---------|---------|-------------------</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>% Stmts</th>
+<th>% Branch</th>
+<th>% Funcs</th>
+<th>% Lines</th>
+<th>Uncovered Line #s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All files</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td>App.js</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td>----------</td>
+<td>---------</td>
+<td>----------</td>
+<td>---------</td>
+<td>---------</td>
+<td>-------------------</td>
+</tr>
+</tbody>
+</table>
+<p>Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total</p>
+<h3>Ciclo de vida de una prueba unitaria</h3>
+<p>Jest nos ofrece distintos metodos para ejecutar durante el ciclo de vida de la prueba unitaria, en la documentación oficial encontramos la totalidad de estos métodos. También encontraras los usados en este módulo en el dashboard con una breve descripción.
+[https://jestjs.io/docs/setup-teardown]</p>
+<h2>Pruebas unitarias sobre un proyecto existente</h2>
+<h3>Primer prueba a SnapShot</h3>
+<p>Para comenzar a aplicar lo aprendido, usaremos el siguiente proyecto:</p>
+<ul>
+<li>repo: [https://github.com/Yog9/SnapShot]</li>
+</ul>
+<p>Para ejecutar las pruebas, debemos activar el --collectCoverage y señalar en el sccript la carpeta que creamos para organizarlas <strong>npm run test  src/<strong>tests</strong></strong></p>
+<h3>Probando onChange usando act</h3>
+<p>Para poder realizar modificaciones en el dom de pruebas es necesario usar la función act de react-test-renderer, puedes revisar en detalle la prueba ejecutada en el dashborad. Lo resultados obtenidos son los siguientes:</p>
+<p>PASS  src/<strong>tests</strong>/Form.test.js</p>
+<Form />
+  ✓ Rederiza correctamente (21ms)
+  ✓ El boton debe habilitarse si el input deja de estar vacío (5ms)
+<p>-------------------|----------|----------|----------|----------|-------------------|</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>% Stmts</th>
+<th>% Branch</th>
+<th>% Funcs</th>
+<th>% Lines</th>
+<th>Uncovered Line #s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All files</td>
+<td>4.81</td>
+<td>5.26</td>
+<td>4.65</td>
+<td>4.81</td>
+<td></td>
+</tr>
+<tr>
+<td>src</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>App.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>... 40,42,43,44,48</td>
+</tr>
+<tr>
+<td>index.js</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+<td>7,12</td>
+</tr>
+<tr>
+<td>serviceWorker.js</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>... 23,130,131,132</td>
+</tr>
+<tr>
+<td>src/api</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>config.js</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>src/components</td>
+<td>12.5</td>
+<td>33.33</td>
+<td>13.33</td>
+<td>12.5</td>
+<td></td>
+</tr>
+<tr>
+<td>Container.js</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>6,7,8,9,13</td>
+</tr>
+<tr>
+<td>Form.js</td>
+<td>83.33</td>
+<td>100</td>
+<td>66.67</td>
+<td>83.33</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Gallery.js</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>... 15,16,17,20,22</td>
+</tr>
+<tr>
+<td>Header.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>5,6</td>
+</tr>
+<tr>
+<td>Image.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>3,4</td>
+</tr>
+<tr>
+<td>Item.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>Loader.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>3,4</td>
+</tr>
+<tr>
+<td>Navigation.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>NoImages.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>3,4</td>
+</tr>
+<tr>
+<td>NotFound.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>3,4</td>
+</tr>
+<tr>
+<td>Search.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>src/context</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>PhotoContext.js</td>
+<td>0</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>... 10,15,16,19,25</td>
+</tr>
+<tr>
+<td>-------------------</td>
+<td>----------</td>
+<td>----------</td>
+<td>----------</td>
+<td>----------</td>
+<td>-------------------</td>
+</tr>
+</tbody>
+</table>
+<p>Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        3.862s</p>
+<p>Aumentamos la cobertura de Form a un 83.33%</p></article>
     </section>
 
 
@@ -154,13 +433,13 @@ Time:        2.725 s</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#describe">describe</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#beforeAll">beforeAll</a></li><li><a href="global.html#describe">describe</a></li><li><a href="global.html#it">it</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Jan 31 2022 22:56:15 GMT-0300 (GMT-03:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Feb 02 2022 17:03:35 GMT-0300 (GMT-03:00)
 </footer>
 
 <script> prettyPrint(); </script>

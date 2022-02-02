@@ -24,7 +24,10 @@ describe("<App />", () => {
     header = component.root.findByType("header");
   })
 
-  //It recibe el identificador de la prueba y un arrow function para ejecutar dicha prueba
+  /**
+   * @function it 
+   * @description La función it recibe el identificador de la prueba y un arrow function para ejecutar dicha prueba
+   */
   it("Renderiza correctamente", () => {
 
     //expect como ya vimos anteriormente recibe el argumento para validar que retorne lo esperado

@@ -7,7 +7,7 @@
 Las pruebas en el frontend se clasifican de la siguiente forma: S
 
 - Pruebas unitarias:  Realiza pruebas a cada unidad por separado
-- Pruebas de integración: Esuna extensión lógica de pruebas unitarias, verifica funcionalidad y seguridad de los componentes integrados.
+- Pruebas de integración: Es una extensión lógica de pruebas unitarias, verifica funcionalidad y seguridad de los componentes integrados.
 - Pruebas E2E: Comprueban el flujo de inicio a fin de un software asegurando que funcione de la manera esperada
 
 ### Test Runner
@@ -123,3 +123,59 @@ Snapshots:   0 total
 
 Jest nos ofrece distintos metodos para ejecutar durante el ciclo de vida de la prueba unitaria, en la documentación oficial encontramos la totalidad de estos métodos. También encontraras los usados en este módulo en el dashboard con una breve descripción.
 [https://jestjs.io/docs/setup-teardown]
+
+## Pruebas unitarias sobre un proyecto existente
+
+### Primer prueba a SnapShot
+
+Para comenzar a aplicar lo aprendido, usaremos el siguiente proyecto:
+
+- repo: [https://github.com/Yog9/SnapShot]
+
+Para ejecutar las pruebas, debemos activar el --collectCoverage y señalar en el sccript la carpeta que creamos para organizarlas **npm run test  src/__tests__** 
+
+### Probando onChange usando act
+
+Para poder realizar modificaciones en el dom de pruebas es necesario usar la función act de react-test-renderer, puedes revisar en detalle la prueba ejecutada en el dashborad. Lo resultados obtenidos son los siguientes:
+
+PASS  src/__tests__/Form.test.js
+<Form />
+  ✓ Rederiza correctamente (21ms)
+  ✓ El boton debe habilitarse si el input deja de estar vacío (5ms)
+
+-------------------|----------|----------|----------|----------|-------------------|
+File               |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-------------------|----------|----------|----------|----------|-------------------|
+All files          |     4.81 |     5.26 |     4.65 |     4.81 |                   |
+ src               |        0 |        0 |        0 |        0 |                   |
+  App.js           |        0 |      100 |        0 |        0 |... 40,42,43,44,48 |
+  index.js         |        0 |      100 |      100 |        0 |              7,12 |
+  serviceWorker.js |        0 |        0 |        0 |        0 |... 23,130,131,132 |
+ src/api           |        0 |      100 |      100 |        0 |                   |
+  config.js        |        0 |      100 |      100 |        0 |                 1 |
+ src/components    |     12.5 |    33.33 |    13.33 |     12.5 |                   |
+  Container.js     |        0 |        0 |        0 |        0 |        6,7,8,9,13 |
+  Form.js          |    83.33 |      100 |    66.67 |    83.33 |                12 |
+  Gallery.js       |        0 |        0 |        0 |        0 |... 15,16,17,20,22 |
+  Header.js        |        0 |      100 |        0 |        0 |               5,6 |
+  Image.js         |        0 |      100 |        0 |        0 |               3,4 |
+  Item.js          |        0 |      100 |        0 |        0 |               4,5 |
+  Loader.js        |        0 |      100 |        0 |        0 |               3,4 |
+  Navigation.js    |        0 |      100 |        0 |        0 |               4,5 |
+  NoImages.js      |        0 |      100 |        0 |        0 |               3,4 |
+  NotFound.js      |        0 |      100 |        0 |        0 |               3,4 |
+  Search.js        |        0 |      100 |        0 |        0 |               4,5 |
+ src/context       |        0 |      100 |        0 |        0 |                   |
+  PhotoContext.js  |        0 |      100 |        0 |        0 |... 10,15,16,19,25 |
+-------------------|----------|----------|----------|----------|-------------------|
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        3.862s
+
+Aumentamos la cobertura de Form a un 83.33%
+
+### Corroborando data con findAllByType
+
+Busca todos los objetos de la instancia descendientes con el tipo (type) pasado como argumento. Retorna un array.
+
