@@ -1,6 +1,6 @@
 import React from "react";
 import Form from '../components/Form';
-import { create } from 'react-test-renderer';
+import { create, act } from 'react-test-renderer';
 
 let component;
 
@@ -34,5 +34,19 @@ describe("<Form />", () => {
     //Confirmamos que el botón venga desacgtivado y tenga la clase null
     expect(button.props.disabled).toBeTruthy();
     expect(button.props.className).toEqual("search-button null");
+
+    /* console.log(input.props); */
+    
+    /**
+     * @function act
+     * @descrption La funcion act es importada de react-test-renderer y es necesaria para ejecutar cambios en los componentes
+     */
+    act(()=> {
+      //Dentro de la función act podemos acceder al metodo onChange mediante las props, y manipular el targget que desata el evento
+      input.props.onChange({target: { value: "aves"}});
+    });
+    //Por último, validamos que se hayan realizado los cambios en el arbol de pruebas, el boton debe mostrarse, por lo tanto disbaled debe estar en false y debe tener la clase active
+    expect(button.props.disabled).toBeFalsy();
+    expect(button.props.className).toEqual("search-button active");
   });
 })
