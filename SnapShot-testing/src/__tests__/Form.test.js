@@ -6,7 +6,7 @@ let component;
 
 const props = {
   history: {},
-  handleSubmit: () => {} //ToDo
+  handleSubmit: jest.fn()
 }
 
 describe("<Form />", () => {
@@ -55,6 +55,8 @@ describe("<Form />", () => {
 
     form.props.onSubmit();
 
-    //ToDo
+    expect(props.handleSubmit).toHaveBeenCalled();
+    expect(props.handleSubmit).toHaveBeenCalledTimes(1);
+    expect(props.handleSubmit).toHaveBeenCalledWith(undefined, props.history, "");
   })
 })

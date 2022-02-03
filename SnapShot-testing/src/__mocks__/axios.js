@@ -1,5 +1,5 @@
 export default {
-  get: () => {},
-  post: () => {},
-  put: () => {}
+  get: jest.fn(),
+  post: jest.fn(),
+  put: jest.fn()
 }

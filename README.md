@@ -181,5 +181,18 @@ Busca todos los objetos de la instancia descendientes con el tipo (type) pasado 
 
 ## Mocking en unit testing con Jest
 
+### Jest module mock
+
 Para el uso de librerias externas como lo son axios o fetch es necesario utilizar la funcion mock de jest, debido a que sus funcionalidades salen de un ambiente de pruebas al realizar la llamada a la API. Para organizar y reutilizar los mocks de jest podemos crear una carpeta llamada __mocks__, esta sera montada antes de ejecutar el entorno de pruebas. La información la podemos encontrar en la documentación oficial: [https://jestjs.io/docs/25.x/bypassing-module-mocks]
 
+### Mocking de funciones
+
+Para validar que las llamadas a funciones se esten ejecutando, a través de los mocks podemos declarar funciones que tambien pueden ser personalizadas. A continuacion un ejemplo de la documentación de jest: [https://jestjs.io/docs/25.x/jest-object#jestfnimplementation]
+
+const mockFn = jest.fn();
+mockFn();
+expect(mockFn).toHaveBeenCalled();
+
+// With a mock implementation:
+const returnsTrue = jest.fn(() => true);
+console.log(returnsTrue()); // true;
