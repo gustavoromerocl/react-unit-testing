@@ -1,5 +1,5 @@
 export default {
-  get: jest.fn(),
-  post: jest.fn(),
+  get: jest.fn().mockImplementation(() => Promise.resolve([])),
+  post: jest.fn().mockImplementation(() => Promise.reject("")),
   put: jest.fn()
 }
