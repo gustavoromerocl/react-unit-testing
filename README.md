@@ -196,3 +196,9 @@ expect(mockFn).toHaveBeenCalled();
 // With a mock implementation:
 const returnsTrue = jest.fn(() => true);
 console.log(returnsTrue()); // true;
+
+### Mocking Timers
+
+Las funciones de temporizador nativas (es decir, setTimeout, setInterval, clearTimeout, clearInterval) son menos que ideales para un entorno de prueba, ya que dependen del tiempo real para transcurrir. Jest puede intercambiar temporizadores con funciones que te permiten controlar el paso del tiempo. En el siguiente enlace podemos revisar la documentación oficial [https://jestjs.io/docs/timer-mocks].
+
+- jest.useFakeTimers();
