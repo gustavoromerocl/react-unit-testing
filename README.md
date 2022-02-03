@@ -179,3 +179,7 @@ Aumentamos la cobertura de Form a un 83.33%
 
 Busca todos los objetos de la instancia descendientes con el tipo (type) pasado como argumento. Retorna un array.
 
+## Mocking en unit testing con Jest
+
+Para el uso de librerias externas como lo son axios o fetch es necesario utilizar la funcion mock de jest, debido a que sus funcionalidades salen de un ambiente de pruebas al realizar la llamada a la API. Para organizar y reutilizar los mocks de jest podemos crear una carpeta llamada __mocks__, esta sera montada antes de ejecutar el entorno de pruebas. La información la podemos encontrar en la documentación oficial: [https://jestjs.io/docs/25.x/bypassing-module-mocks]
+
