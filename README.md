@@ -241,4 +241,7 @@ Para validar las llamadas a la API, es necesario envolver el componente que real
     );
   });
 
+### Jest useFakeTimers
+
+Como vimos anteriormente, para funciones con setTimeOut es necesario usar useFakeTimers(), de esta forma jest no se romperá al momento de ejecutar pruebas en componentes que dependan este tipo de funciones.
 
