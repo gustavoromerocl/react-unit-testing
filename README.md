@@ -229,3 +229,16 @@ Cuando el componente a probar depende de un provider, es necesario hacer el wrap
     </PhotoContextProvider>
   );
 
+### Comprobando resultados de llamadas mock a la API
+
+Para validar las llamadas a la API, es necesario envolver el componente que realiza la llamada en una función asincorna de act, debido a que es necesario esperar el resultado para seguir la ejecución de las pruebas. Ejemplo:
+
+- await act(async () => {
+    await component.update(
+      <PhotoContextProvider>
+        <Container searchTerm="text" />
+      </PhotoContextProvider>
+    );
+  });
+
+
