@@ -245,3 +245,13 @@ Para validar las llamadas a la API, es necesario envolver el componente que real
 
 Como vimos anteriormente, para funciones con setTimeOut es necesario usar useFakeTimers(), de esta forma jest no se romperá al momento de ejecutar pruebas en componentes que dependan este tipo de funciones.
 
+
+### Mocking window fetch
+
+En el caso de fetch, para evitar errores de ejecución y llamar a la API de producción, es necesario sobrescribir el método usando mocking implementation. Ejemplo: 
+
+- window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+    json: () => Promise.resolve([])
+  }));
+
+
