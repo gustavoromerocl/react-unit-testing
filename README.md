@@ -216,3 +216,16 @@ const foo = require('../foo');
 foo.mockImplementation(() => 42);
 foo();
 // > 42
+
+## Ejercicios de pruebas unitarias
+
+### Creando prueba a componentes con provider
+
+Cuando el componente a probar depende de un provider, es necesario hacer el wrapper en el create de la prueba. Ejemplo:
+
+- component = create(
+    <PhotoContextProvider>
+      <Container searchTerm="" />
+    </PhotoContextProvider>
+  );
+
