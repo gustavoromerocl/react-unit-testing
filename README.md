@@ -254,4 +254,8 @@ En el caso de fetch, para evitar errores de ejecución y llamar a la API de prod
     json: () => Promise.resolve([])
   }));
 
+### Comprobando local storage y limpiando mockings
 
+Las funciones que manipulan el local storage de los navgedores se encuentran en el objeto window, por lo que desde ahí realizaremos el mocking de los métodos para poder hacerles @override. Ejemplo: 
+
+- window.Storage.prototype.setItem = jest.fn();

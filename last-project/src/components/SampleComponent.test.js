@@ -13,6 +13,9 @@ describe("<SampleComponent", () => {
       json: () => Promise.resolve([])
     }));
 
+    //sobreescribirmos el objeto la función setItem del objeto Storage
+    window.Storage.prototype.setItem = jest.fn();
+
     component = create(<SampleComponent />)
   });
 
@@ -54,5 +57,25 @@ describe("<SampleComponent", () => {
 
     expect(window.fetch).toHaveBeenCalled();
     expect(window.fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it("Guarda el resultado en local storage", async () => {
+    await act(async () => {
+      await jest.runAllTimers();
+    });
+
+    //Se valida que setItem gestione la llamada al local storage, los argumentos que se pasan son los usados en la función del componente y el array del mocking de fetch que le hace stringify al array
+    expect(localStorage.setItem).toHaveBeenCalled();
+    expect(localStorage.setItem).toHaveBeenCalledWith("users", "[]");
+  });
+
+  /**
+   * @function afterAll
+   * @description Esta función ejecuta un callback despues de cada test unitario
+   */
+  afterAll(() => {
+    //Se limpian las funciones mocking de fetch y local storage para evitar conflictos con otros archivos
+    window.fetch.mockReset();
+    window.Storage.prototype.setItem.mockReset();
   })
 })
